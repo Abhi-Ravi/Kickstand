@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		383B8C37226A72C5003E251C /* AddNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B8C36226A72C5003E251C /* AddNew.swift */; };
 		38D69719222B36310038963B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D69718222B36310038963B /* AppDelegate.swift */; };
 		38D6971B222B36310038963B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D6971A222B36310038963B /* ViewController.swift */; };
 		38D6971E222B36310038963B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38D6971C222B36310038963B /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		383B8C36226A72C5003E251C /* AddNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNew.swift; sourceTree = "<group>"; };
 		38D69715222B36310038963B /* FindMyRackAPL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyRackAPL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D69718222B36310038963B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38D6971A222B36310038963B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				38D6971F222B36310038963B /* Assets.xcassets */,
 				38D69721222B36310038963B /* LaunchScreen.storyboard */,
 				38D69724222B36310038963B /* Info.plist */,
+				383B8C36226A72C5003E251C /* AddNew.swift */,
 			);
 			path = FindMyRackAPL;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				TargetAttributes = {
 					38D69714222B36310038963B = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					38D69728222B36310038963B = {
 						CreatedOnToolsVersion = 10.1;
@@ -257,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38D6971B222B36310038963B /* ViewController.swift in Sources */,
+				383B8C37226A72C5003E251C /* AddNew.swift in Sources */,
 				38D69719222B36310038963B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,7 +446,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = aravi.FindMyRackAPL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -459,7 +464,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = aravi.FindMyRackAPL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
