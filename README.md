@@ -27,4 +27,4 @@ Download the GitHub Repository and open the project file in the folder labeled *
 - Sometimes, on the first time a device opens the application, the route to the closest bike rack is not automatically routed.
 
 
-
+## Time Log
