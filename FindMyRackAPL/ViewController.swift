@@ -15,10 +15,16 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 400
+    var minIndex = 0
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        
         checkLocationServices()
+        
+        
         createAnnotations(locations: annotationLocations)
         findClosestRack(locations: annotationLocations)
     }
@@ -30,10 +36,11 @@ class ViewController: UIViewController, MKMapViewDelegate {
     }
     
     
+    
     func centerViewOnUserLocation() {
         if let location = locationManager.location?.coordinate {
             let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-            mapView.setRegion(region, animated: true)
+            mapView.setRegion(region, animated: false)
         }
         
 //        print(locationManager.location?.coordinate)
@@ -57,7 +64,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
             mapView.showsUserLocation = true
-            centerViewOnUserLocation()
+             centerViewOnUserLocation()
+            
             locationManager.startUpdatingLocation()
             break
         case .denied:
@@ -77,23 +85,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     //marker data
     let annotationLocations = [
-//        [" title": "Will Skelton Greenway", "rackType":"hoop", "address": "2225 Estelle Circle", "latitude":35.961614, "longitude": -83.882901],
-//
-//        ["title": "Ned McWheter Park", "rackType":"hoop", "address": "1648 Riverside", "latitude":35.963440, "longitude": -83.896666],
-//
-//        ["title": "Burlington Branch Library", "rackType":"hoop", "address": "4614 Asheville Hwy", "latitude":36.004390, "longitude": -83.859357],
-//
-//        ["title": "Cansler YMCA", "rackType":"hoop", "address": "616 Jessamine", "latitude":35.978893, "longitude": -83.912293],
-//
-//        ["title": "Farragut High School", "rackType":"hoop", "address": "11237 Kingston Pike, Knoxville, TN 37934", "latitude": 35.887757, "longitude": -84.159864],
-//
-//       ["title": "Farragut Presbyterian Church", "rackType":"hoop", "address": "209 Jamestowne Blvd, Knoxville, TN 37934", "latitude": 35.882292, "longitude": -84.166076],
-//
-//       ["title": "Farragut Town Hall", "rackType":"hoop", "address": "11408 Municipal Center Dr, Farragut, TN 37934", "latitude": 35.878445, "longitude": -84.160917],
-//
-//      ["title": "Campbell Station Park", "rackType":"hoop", "address": "405 N Campbell Station Rd, Farragut, TN 37934", "latitude": 35.888581, "longitude": -84.16714],
-//
-//      ["title": "Farragut Parks", "rackType":"hoop", "address": "301 Watt Rd, Farragut, TN 37934", "latitude": 35.865147, "longitude": -84.225743],
+
         ["title": "Will Skelton Greenway", "rackType":"Hoop", "address": "2225 Estelle Circle", "latitude": 35.9616, "longitude": -83.8827],
         
         ["title": "Ned McWheter Park", "rackType":"Hoop", "address": "1648 Riverside", "latitude": 35.9635, "longitude": -83.4897],
@@ -170,19 +162,22 @@ class ViewController: UIViewController, MKMapViewDelegate {
     ]
     
     
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = UIColor.red
-        renderer.lineWidth = 4.0
-        
-        return renderer
-    }
+//    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+//        let renderer = MKPolylineRenderer(overlay: overlay)
+//        renderer.strokeColor = UIColor.red
+//        renderer.lineWidth = 4.0
+//
+//        return renderer
+//    }
     
     //adding markers to map
     func createAnnotations(locations: [[String : Any]]) {
         for location in locations {
             let annotations = MKPointAnnotation()
+            
+            let subtitle = location["address"] as? String
             annotations.title = location["title"] as? String
+            annotations.subtitle = subtitle
             
             annotations.coordinate = CLLocationCoordinate2D(latitude: location["latitude"] as! CLLocationDegrees, longitude: location["longitude"] as! CLLocationDegrees)
             
@@ -201,7 +196,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let currentLongitude = locationManager.location?.coordinate.longitude
         
         var minimumDistance = 99999.9;
-        var minIndex = 0;
+        minIndex = 0;
         
          if currentLatitude != nil && currentLongitude != nil {
         for object in annotationLocations{
@@ -235,22 +230,52 @@ class ViewController: UIViewController, MKMapViewDelegate {
             }
             i += 1
         }
+            
+        //create route
+            createRoute(destLat: annotationLocations[minIndex]["latitude"], destLong: annotationLocations[minIndex]["longitude"], title: annotationLocations[minIndex]["title"])
         
         print("The minimum Distance = ", minimumDistance, " and is on index ", minIndex)
         if let actualNode = annotationLocations[minIndex]["title"] {
             print(actualNode)
         }
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.red
+        renderer.lineWidth = 4.0
         
+        return renderer
+    }
+
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {   // ADD THIS BITCH
+        print("bitch1")
+
+        let annotation = view.annotation as? MKPointAnnotation
+        if (view.annotation as? MKPointAnnotation) != nil {
+            print("bitch2")
+            let title = annotation?.title
+            let index1 = annotationLocations.firstIndex(where: {$0["title"] as? String == title})
+
+            print(annotationLocations[index1!]["latitude"])
+
+            createRoute(destLat: annotationLocations[index1!]["latitude"], destLong: annotationLocations[index1!]["longitude"], title: annotationLocations[index1!]["title"])
+        }
+
+    }
+    
+    func createRoute(destLat: Any, destLong: Any, title: Any){
         // 1.
         mapView.delegate = self
         
-            guard let  sourceLong =  currentLongitude else { return print("oops") }
-            guard let sourceLat = currentLatitude else { return print("oops") }
+        let  sourceLat = (locationManager.location?.coordinate.latitude)!
+        let  sourceLong = (locationManager.location?.coordinate.longitude)!
             
         // 2.
         let sourceLocation = CLLocationCoordinate2D(latitude: sourceLat, longitude: sourceLong)
         
-        let destinationLocation = CLLocationCoordinate2D(latitude: annotationLocations[minIndex]["latitude"] as! CLLocationDegrees, longitude: annotationLocations[minIndex]["longitude"] as! CLLocationDegrees)
+        let destinationLocation = CLLocationCoordinate2D(latitude: destLat as! CLLocationDegrees, longitude: destLong as! CLLocationDegrees)
         
         // 3.
         let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
@@ -269,14 +294,14 @@ class ViewController: UIViewController, MKMapViewDelegate {
 //            sourceAnnotation.coordinate = location.coordinate
 //        }
         let destinationAnnotation = MKPointAnnotation()
-        destinationAnnotation.title = annotationLocations[minIndex]["title"] as? String
+        destinationAnnotation.title = title as! String
         
         if let location = destinationPlacemark.location {
             destinationAnnotation.coordinate = location.coordinate
         }
         
         // 6.
-        self.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
+        //self.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: false )
         
         // 7.
         let directionRequest = MKDirections.Request()
@@ -299,98 +324,39 @@ class ViewController: UIViewController, MKMapViewDelegate {
                 return
             }
             
+            self.mapView.removeOverlays(self.mapView.overlays)  // remove route
+//
             let route = response.routes[0]
             self.mapView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
-            
+//
+//            //this parts in zoomin
             let rect = route.polyline.boundingMapRect
-            self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
+            self.mapView.setRegion(MKCoordinateRegion(rect), animated: false)
+//
+            self.mapView.setCenter(sourceLocation, animated: false)
+            
+
         }
+//        let rect = route.polyline.boundingMapRect
+//        self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
     }
-    
         /********************** ROUTING CODE (WIP) *************************/
-    }
+    
         
 }
 
 
-//
-//    func findPath(locations: [[String : Any]]){
-//        // 1.
-//        mapView.delegate = self as? MKMapViewDelegate
-//
-//        // 2.
-//        let sourceLocation = CLLocationCoordinate2D(latitude: 35.963440, longitude: -83.882901)
-//        let destinationLocation = CLLocationCoordinate2D(latitude: 36.004390, longitude: -83.859357)
-//
-//        // 3.
-//        let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
-//        let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
-//
-//        // 4.
-//        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
-//        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
-//        // 5.
-//        let sourceAnnotation = MKPointAnnotation()
-//
-//
-//        sourceAnnotation.title = "Times Square"
-//
-//        if let location = sourcePlacemark.location {
-//            sourceAnnotation.coordinate = location.coordinate
-//        }
-//        let destinationAnnotation = MKPointAnnotation()
-//        destinationAnnotation.title = "Empire State Building"
-//
-//        if let location = destinationPlacemark.location {
-//            destinationAnnotation.coordinate = location.coordinate
-//        }
-//
-//        // 6.
-//        self.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
-//
-//        // 7.
-//        let directionRequest = MKDirections.Request()
-//        directionRequest.source = sourceMapItem
-//        directionRequest.destination = destinationMapItem
-//        directionRequest.transportType = .automobile
-//
-//        // Calculate the direction
-//        let directions = MKDirections(request: directionRequest)
-//
-//        // 8.
-//        directions.calculate {
-//            (response, error) -> Void in
-//
-//            guard let response = response else {
-//                if let error = error {
-//                    print("Error: \(error)")
-//                }
-//
-//                return
-//            }
-//
-//            let route = response.routes[0]
-//            self.mapView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
-//
-//            let rect = route.polyline.boundingMapRect
-//            self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
-//        }
-//    }
-//
-//}
-
-
 extension ViewController: CLLocationManagerDelegate {
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-        mapView.setRegion(region, animated: true)
-    }
-
-
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        checkLocationAuthorization()
-    }
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        guard let location = locations.last else { return }
+//        let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+//        mapView.setRegion(region, animated: true)
+//    }
+//
+//
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        checkLocationAuthorization()
+//    }
 }
 

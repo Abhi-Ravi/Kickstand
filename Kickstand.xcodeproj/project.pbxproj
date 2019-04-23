@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		382BC329226E7C65007FEF2C /* kickstandIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 382BC328226E7C65007FEF2C /* kickstandIcon.png */; };
 		383B8C37226A72C5003E251C /* AddNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B8C36226A72C5003E251C /* AddNew.swift */; };
 		38D69719222B36310038963B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D69718222B36310038963B /* AppDelegate.swift */; };
 		38D6971B222B36310038963B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D6971A222B36310038963B /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		382BC328226E7C65007FEF2C /* kickstandIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kickstandIcon.png; path = ../../../../Desktop/icons/kickstandIcon.png; sourceTree = "<group>"; };
 		383B8C36226A72C5003E251C /* AddNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNew.swift; sourceTree = "<group>"; };
 		38D69715222B36310038963B /* FindMyRackAPL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyRackAPL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D69718222B36310038963B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		38D69717222B36310038963B /* FindMyRackAPL */ = {
 			isa = PBXGroup;
 			children = (
+				382BC328226E7C65007FEF2C /* kickstandIcon.png */,
 				38D69718222B36310038963B /* AppDelegate.swift */,
 				38D6971A222B36310038963B /* ViewController.swift */,
 				38D6971C222B36310038963B /* Main.storyboard */,
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38D69723222B36310038963B /* LaunchScreen.storyboard in Resources */,
+				382BC329226E7C65007FEF2C /* kickstandIcon.png in Resources */,
 				38D69720222B36310038963B /* Assets.xcassets in Resources */,
 				38D6971E222B36310038963B /* Main.storyboard in Resources */,
 			);
