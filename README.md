@@ -28,3 +28,16 @@ Download the GitHub Repository and open the project file in the folder labeled *
 
 
 ## Time Log
+| Date      | Member         | Hours |
+|-----------|----------------|-------|
+| 3/3/2019  | ALL            | 4     |
+| 3/25/2019 | Abhi           | 2     |
+| 3/26/2019 | Abhi           | 4     |
+| 3/27/2019 | Abhi           | 3     |
+| 3/25/2019 | Rephael, Tyler | 2     |
+| 3/28/2019 | ALL            | 1     |
+| 4/9/2019  | Tyler          | 1     |
+| 4/12/2019 | Tyler, Jared   | 1     |
+| 4/16/2019 | Tyler, Abhi    | 2     |
+| 4/19/2019 | ALL            | 1     |
+| 4/22/2019 | ALL            | 3     |
