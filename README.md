@@ -12,9 +12,9 @@ Since this application was built entirely on XCode and the Swift programming lan
 
 
 To run a simulation of the application, you will need 
- [XCode](https://developer.apple.com/xcode/).  Keep in mind that XCode will only work on Mac OS.
+ [Xcode](https://developer.apple.com/xcode/).  Keep in mind that Xcode will only work on Mac OS.
 
-Download the GitHub Repository and open the project file in the folder labeled **Kickstand.xcodeproj**.  Make sure the other folders are in the same directory before launching XCode with it.  
+Download the GitHub Repository and open the project file in the folder labeled **Kickstand.xcodeproj**.  Make sure the other folders are in the same directory before launching XCode with it.  From here, you can either deploy it straight onto your iPhone if it is connected to the computer by wire, or you can run a simulation by clicking **_run simulation_**.  The simulation will create an instance of a working iPhone model with the application installed on the simulated device.
 
 
 
@@ -58,4 +58,4 @@ Download the GitHub Repository and open the project file in the folder labeled *
 -  **4/16/2019:** **Abhi** developed a working version with the implemntation of MapKit and Google Maps.  **Tyler** got pins to display.
 -  **4/19/2019:** **Rephael** went around campus and gathered bike rack data.  **Tyler and Abhi** worked on routing logic.  **Jared** finalized the logo and color scheme.
 -  **4/22/2019:** **Rephael** developed a CSV-to-Swift parser with c++.  Developed closest rack algorithm. **Abhi and Tyler** figured out a working routing to pins/annotations.  You can now click on annotations to change route.  **Jared** created icons and buttons for add a new rack.
--  **4/24/2019:** **Rephael** added more bike rack locations around Knoxville.  **Abhi and Tyler** fixed re-centering bug and route not showing bug.  **Jared** created splash screen (screen that displays on startup) and fixed input form bugs when trying to add a new rack.
+-  **4/24/2019:** **Jared** created splash screen (screen that displays on startup) and fixed input form bugs when trying to add a new rack.  **Rephael** added more bike rack locations around Knoxville.  **Abhi and Tyler** fixed re-centering bug and route not showing bug.  
