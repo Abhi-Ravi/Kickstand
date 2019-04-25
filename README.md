@@ -57,4 +57,5 @@ Download the GitHub Repository and open the project file in the folder labeled *
 -  **4/12/2019:**  **Jared** started design on the official Kickstand Logo and color scheme of the application.  **Tyler** continued to research the syntax of MapKit's API and how to insert pins.
 -  **4/16/2019:** **Abhi** developed a working version with the implemntation of MapKit and Google Maps.  **Tyler** got pins to display.
 -  **4/19/2019:** **Rephael** went around campus and gathered bike rack data.  **Tyler and Abhi** worked on routing logic.  **Jared** finalized the logo and color scheme.
--  **4/22/2019** **Rephael** developed a CSV-to-Swift parser with c++.  **
+-  **4/22/2019:** **Rephael** developed a CSV-to-Swift parser with c++.  Developed closest rack algorithm. **Abhi and Tyler** figured out a working routing to pins/annotations.  You can now click on annotations to change route.  **Jared** created icons and buttons for add a new rack.
+-  **4/24/2019:** **Rephael** added more bike rack locations around Knoxville.  **Abhi and Tyler** fixed re-centering bug and route not showing bug.  **Jared** created splash screen (screen that displays on startup) and fixed input form bugs when trying to add a new rack.
