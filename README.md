@@ -1,6 +1,9 @@
 # Kickstand
 Finds the closest bike rack to you in the city of Knoxville.
 
+## NOTE on GitHub
+Due to Apple Developer Certifcations of our project as well as needing a Mac to develop on Xcode, we decided to only submit (after a couple of initial pushes from other workers) code from Abhi's laptop. It may seem like the commits are weighted heavily by Abhi, but in reality, we mostly used his laptop to develop and then pushed when we were comfortable with each commit. We came up with code solo either by having your own Mac (Tyler), going to the library (Rephael), or remoting into a Mac (Jared). 
+
 ## Installation and Build
 
 First, make sure you are on the **latest iOS version** as this application will not work and will crash if you are not on the latest IOS version.
@@ -50,4 +53,8 @@ Download the GitHub Repository and open the project file in the folder labeled *
 -  **3/26/2019:** **Abhi** continued to learn swift and develop the foundations of the app including the MapKit library.  **Jared** researched user interface syntax on Swift.
 -  **3/27/2019:** **Abhi** finalized the foundations of the app and got it running and able to deploy on our iPhones.
 -  **3/28/2019:** **ALL** put together a simple UI that displays a simple map from Apple Maps.
--  **4/9/2019:** 
+-  **4/9/2019:** **Tyler** researched how to create pin/annotations.  **Jared** started design on the dynamic UI of the application.
+-  **4/12/2019:**  **Jared** started design on the official Kickstand Logo and color scheme of the application.  **Tyler** continued to research the syntax of MapKit's API and how to insert pins.
+-  **4/16/2019:** **Abhi** developed a working version with the implemntation of MapKit and Google Maps.  **Tyler** got pins to display.
+-  **4/19/2019:** **Rephael** went around campus and gathered bike rack data.  **Tyler and Abhi** worked on routing logic.  **Jared** finalized the logo and color scheme.
+-  **4/22/2019** **Rephael** developed a CSV-to-Swift parser with c++.  **
