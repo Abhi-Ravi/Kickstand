@@ -37,13 +37,17 @@ Download the GitHub Repository and open the project file in the folder labeled *
 | 3/27/2019 | Abhi           | 3     |
 | 3/25/2019 | Rephael, Tyler | 2     |
 | 3/28/2019 | ALL            | 1     |
-| 4/9/2019  | Tyler          | 1     |
+| 4/9/2019  | Tyler          | 2     |
 | 4/9/2019  | Jared          | 2     |
-| 4/9/2019  | Tyler          | 1     |
 | 4/12/2019 | Tyler, Jared   | 1     |
 | 4/16/2019 | Tyler, Abhi    | 2     |
 | 4/19/2019 | ALL            | 5     |
 | 4/22/2019 | ALL            | 3     |
 | 4/24/2019 | ALL            | 4     | 
 
-- **3/3/2019: ** Brainstorming ideas
+-  **3/3/2019:** **ALL** brainstormed project ideas.  Possibilites were DJ application, Kickstand, or Runescape bot.  Selected Kickstand.
+-  **3/25/2019:** **Abhi** was researching iOS development overview.  Develop foundations of the application.  **Rephael** researched possible database opportunities to hold bike rack data.  **Tyler** Helped Abhi figure out the foundations of the application, including handling taps and navigation bars.
+-  **3/26/2019:** **Abhi** continued to learn swift and develop the foundations of the app including the MapKit library.  **Jared** researched user interface syntax on Swift.
+-  **3/27/2019:** **Abhi** finalized the foundations of the app and got it running and able to deploy on our iPhones.
+-  **3/28/2019:** **ALL** put together a simple UI that displays a simple map from Apple Maps.
+-  **4/9/2019:** 
