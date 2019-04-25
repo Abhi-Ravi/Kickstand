@@ -45,3 +45,5 @@ Download the GitHub Repository and open the project file in the folder labeled *
 | 4/19/2019 | ALL            | 5     |
 | 4/22/2019 | ALL            | 3     |
 | 4/24/2019 | ALL            | 4     | s
+
+- **3/3/2019: ** Brainstorming ideas
