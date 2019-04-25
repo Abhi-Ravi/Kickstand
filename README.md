@@ -3,7 +3,7 @@ Finds the closest bike rack to you in the city of Knoxville.
 
 ## Installation and Build
 
-First, make sure you are on the **latest IOS version** as this application will not work and will crash if you are not on the latest IOS version.
+First, make sure you are on the **latest iOS version** as this application will not work and will crash if you are not on the latest IOS version.
 
 Since this application was built entirely on XCode and the Swift programming language, you will **need** an iPhone to run this application.  
 
