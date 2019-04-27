@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  FindMyRackAPL
 //
-//  Created by Abhi Ravi on 3/2/19.
+//  Created by Abhi Ravi, Tyler Nguyen, Jared Allen, Rephael Congmon on 3/2/19.
 //  Copyright © 2019 Abhi Ravi. All rights reserved.
 //
 
@@ -42,10 +42,6 @@ class ViewController: UIViewController, MKMapViewDelegate {
             let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
             mapView.setRegion(region, animated: false)
         }
-        
-//        print(locationManager.location?.coordinate)
-//        print(locationManager.location?.coordinate.longitude as Any)
-        
         
     }
     
@@ -162,14 +158,6 @@ class ViewController: UIViewController, MKMapViewDelegate {
     ]
     
     
-//    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-//        let renderer = MKPolylineRenderer(overlay: overlay)
-//        renderer.strokeColor = UIColor.red
-//        renderer.lineWidth = 4.0
-//
-//        return renderer
-//    }
-    
     //adding markers to map
     func createAnnotations(locations: [[String : Any]]) {
         for location in locations {
@@ -225,8 +213,6 @@ class ViewController: UIViewController, MKMapViewDelegate {
                     minIndex = i
                 }
                 
-                //print("Distance from current location: ", distance, "\n")
-                
             }
             i += 1
         }
@@ -249,12 +235,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
         return renderer
     }
 
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {   // ADD THIS BITCH
-        print("bitch1")
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {   // adds the route
 
         let annotation = view.annotation as? MKPointAnnotation
         if (view.annotation as? MKPointAnnotation) != nil {
-            print("bitch2")
             let title = annotation?.title
             let index1 = annotationLocations.firstIndex(where: {$0["title"] as? String == title})
 
@@ -287,21 +271,12 @@ class ViewController: UIViewController, MKMapViewDelegate {
         // 5.
         let sourceAnnotation = MKPointAnnotation()
         
-        
-//        sourceAnnotation.title = "currentLocation"
-//
-//        if let location = sourcePlacemark.location {
-//            sourceAnnotation.coordinate = location.coordinate
-//        }
         let destinationAnnotation = MKPointAnnotation()
         destinationAnnotation.title = title as! String
         
         if let location = destinationPlacemark.location {
             destinationAnnotation.coordinate = location.coordinate
         }
-        
-        // 6.
-        //self.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: false )
         
         // 7.
         let directionRequest = MKDirections.Request()
@@ -337,10 +312,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
             
 
         }
-//        let rect = route.polyline.boundingMapRect
-//        self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
+
     }
-        /********************** ROUTING CODE (WIP) *************************/
     
         
 }
@@ -348,15 +321,5 @@ class ViewController: UIViewController, MKMapViewDelegate {
 
 extension ViewController: CLLocationManagerDelegate {
     
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        guard let location = locations.last else { return }
-//        let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-//        mapView.setRegion(region, animated: true)
-//    }
-//
-//
-//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//        checkLocationAuthorization()
-//    }
 }
 
