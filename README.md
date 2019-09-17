@@ -1,9 +1,6 @@
 # Kickstand
 Finds the closest bike rack to you in the city of Knoxville.
 
-## NOTE on GitHub
-Due to Apple Developer Certifcations of our project as well as needing a Mac to develop on Xcode, we decided to only submit (after a couple of initial pushes from other workers) code from Abhi's laptop. It may seem like the commits are weighted heavily by Abhi, but in reality, we mostly used his laptop to develop and then pushed when we were comfortable with each commit. We came up with code solo either by having your own Mac (Tyler), going to the library (Rephael), or remoting into a Mac (Jared). 
-
 ## Installation and Build
 
 First, make sure you are on the **latest iOS version** as this application will not work and will crash if you are not on the latest IOS version.
